@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+def reverse_wrods(a=[])
+        word = a.shift
+        reverse_wrods(a) if a.length != 0
+        print "#{word}"
+end
+
+
+message = 'find you will pain only go you recordings security the into if'
+
+
+# word reversal
+reverse_wrods(message.split(' '))
+
+# Full reversal
+reverse_wrods(message.split(//))
