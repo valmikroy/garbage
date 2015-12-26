@@ -115,3 +115,5 @@ print_tree(data)
 puts
 @depth = 0
 puts get_tree_height(data) 
+
+breadth_first([data])
