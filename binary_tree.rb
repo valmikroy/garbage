@@ -2,6 +2,11 @@
  
 require 'pp'
  
+# Building binary tree from given array
+# Every node has left , right and value variable
+# left and right are pointers to another node
+# depedending on condition traverse till you reach leaf which does not have value variable
+# there you create new leaf
 def build_tree( n , d )
  
         if d.key?('v')
@@ -14,6 +19,8 @@ def build_tree( n , d )
  
 end
  
+# Printing tree is first recurse till leaft of left side of the root node
+# then recurse to right
 def print_tree(d)
  
         print_tree(d['l']) if d.key?('l')
@@ -23,6 +30,10 @@ def print_tree(d)
 end
  
  
+# count when you hit every nodes
+# when you reach leaf , store that count to global counter
+# next time when reach leaf again , check global counter if its less than current count of nodes above this leaf
+# if yes, then update global counter with higher value
 def get_tree_height(d,cnt = 0 )
  
         if ( d['l'] == {} && d['r'] == {} )
@@ -37,7 +48,15 @@ def get_tree_height(d,cnt = 0 )
  
 end
  
- 
+# Print binary tree without recursion
+# Problem get divided as follows
+# do while loop which will keep going on till all nodes get touched
+# to keep track of current node in processing use @current
+# if current node is not leaf then push that node value and its right pointer on @stack
+# when you hit leaf which in our case blank hash {} with no value or left or right pointer ( check L15 above )
+# that time pop right pointer and value our of stack and print value
+# then make right pointer as @current node and loop over again
+# when stack is empty , set @current to nil which would indicate that we have touched all nodes 
 def no_recurse_print_tree(data)
  
         begin
