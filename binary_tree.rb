@@ -80,6 +80,27 @@ def no_recurse_print_tree(data)
  
 end
  
+# breadth first where both left and right nodes need to be take care
+# of first before moving to next level
+# so recursion function takes array as input 
+# as long as array has elements it will print value of each element and throw its left and right nodes on stack
+# pass this built stack to same function to form recursion
+def breadth_first(a=[])
+        unless a.length == 0
+                s = []
+                a.each do |z|
+                        if z.key?('v')
+                                print "#{z['v']} "
+                                s.push(z['l'])
+                                s.push(z['r'])
+                        end
+                end
+                breadth_first(s)
+        end
+ 
+end 
+ 
+ 
 data = {}
 [50,25,75,12,37,6,18,3,9,15,21, 21,43,28,34,40,46,62,87,56,68,53,59,65,71,81,93,78,84,90,96 ].each do |x|
         build_tree(x,data)
