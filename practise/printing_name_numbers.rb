@@ -14,13 +14,16 @@ c = (a*b/(a-b))
 
 
 ( 1 .. 1000 ).each do |n|  
-
 	# figured a rule 
 	# (6*4/(6-4)) == 12 
 	# if number divisible by 12 then it should be divisible by both
-	puts "LinkedIn #{n}" if n%c == 0
-	puts "Linked #{n}" if n%b == 0
-	puts "In #{n}" if n%a == 0
-	puts n 
-
+	if n%c == 0 
+		puts "LinkedIn #{n}"
+	elsif  n%b == 0
+		puts "Linked #{n}"
+	elsif  n%a == 0
+		puts "In #{n}"
+	else
+		puts n
+	end
 end
